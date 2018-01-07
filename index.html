@@ -1,64 +1,428 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+	<title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/night.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h2>Python Web Frameworks in the Age of Microservices</h2>
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
 
+	<style>
+		h1 {
+			font-size: 2.12em;
+		}
+		h2 {
+			font-size: 2em;
+		}
+		h2.contrast {
+			color: #111;
+		}
+		div.photo_credits {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			font-size: 0.4em; !important
+		}
+		table.roundup {
+			font-size: 0.85em;
+		}
+		.logo {
+			margin: 0px;
+			border: 0px;
+			background: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Python Web Frameworks in the Age of Microservices</h1>
+
+				<br>
+				<br>
+
+				<ul>
+					<li>twitter: <a href="https://twitter.com/MislavCimpersak">@MislavCimpersak</a></li>
+					<li>github: <a href="https://github.com/mislavcimpersak">github.com/mislavcimpersak</a></li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+					- Hello! I'm Mislav, web developer from Zagreb.
+					- Microservices are a trend that is here to stay. Thanks to the modularity and granularity they provide on top of advantages like releasing applications in a continuous manner. There are various platforms and projects that are rising which are aimimg to make writing and managing microservices easy.
+					I'll talk about microservices building blocks within Python ecosystem, but with a strong emphasis on microservices that heavily use RESTful API as the main mean of communication with other services.
+				</aside>
+			</section>
+
+			<section data-background-image="media/old_faithful.jpg">
+				<h2 class="contrast">Old Faithful</h2>
+
+				<div class="photo_credits">
+					Photo by Emily Campbell on Unsplash
+				</div>
+
+				<aside class="notes" data-markdown>
+					- Lucky for us, Python's ecosystem is rich with numerous wonderful web frameworks, some considered enterprise ready and some lot more boutique than you might find confortable.
+					- I'll start with two frameworks everybody has heard of:
+				</aside>
+			</section>
+
+			<section>
+				<h2>Django</h2>
+
+				<img style="border: 0px; background: none; margin: 15px; padding: 15px;" src="media/django_logo.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- The first one is Django.
+					- I'm not going to talk a lot about Django since I'm betting that most of you, if not all have worked on a Django based project in their lifetime.
+					- It's stable, it's mature, it's got a large and strong community, it's excellent for prototyping your idea real fast.
+					- But also proven in the wild to be able to handle even huge deployments.
+					- It's the framework you will use for your project when you want to get it running in minumum time.
+					- But often, in later phases, of choping you Django monolith into smaller services the first thing on the chopping block.
+					- Because... it's slow.
+					- Framework overhead is just huge.
+					- For a microservice you can turn off a lot of things you aren't using, like various middlewares and such, but you'll never get stellar speeds.
+				</aside>
+			</section>
+
+			<section>
+				<h2>Flask</h2>
+
+				<img style="border: 0px; background: white; margin: 15px; padding: 15px;" src="media/flask_logo.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- Flask's development is slow and steady. I guess.
+					- Even though the current version is 0.12 most folks consider it stable enough to build their businesses on it.
+					- Today really wide spread. Big companies like Twillio and Pinterest are using it for parts of their infrastructure.
+					- If we could call Django "batteries included" framework, we could call Flask "some batteries included" framework.
+					- But guess what? Even though it's faster than Django, it's still not the fastest thing in the world.
+				</aside>
+			</section>
+
+			<section data-background-image="media/road_less_traveled.jpg">
+				<h2 class="contrast">Road Less Traveled</h2>
+
+				<div class="photo_credits">
+					Photo by Gabriel Garcia Marengo on Unsplash
+				</div>
+
+				<aside class="notes" data-markdown>
+					- That brings us to the other frameworks.
+					- Frameworks that are created with minimalism in mind.
+				</aside>
+			</section>
+
+			<section>
+				<h2>Bottle</h2>
+
+				<img style="border: 0px; background: white; margin: 15px; padding: 15px;" src="media/bottle_logo.png" alt="" width="40%">
+
+				<aside class="notes" data-markdown>
+					- this is perhaps the most known one of the crowd and the oldest (2009 first release on pypi)
+					- at first I decided to skip it because, let's face it, it's not really _that_ unknown and because I'm not even sure if the project is even _properly_ alive.
+					- last post on development blog is July 2013 (http://blog.bottlepy.org/)
+				</aside>
+			</section>
+
+			<section>
+				<h2>Bottle</h2>
+
+				<div style="text-align:center;">
+					<img src="media/bottle_versions_01.png" alt="" style="display: inline-block; margin-left: auto; margin-right: auto; height: 530px;">
+					<img src="media/bottle_versions_02.png" alt="" style="display: inline-block; margin-left: auto; margin-right: auto; height: 530px;">
+				</div>
+
+				<aside class="notes" data-markdown>
+					- really, really slow development
+					- as we can see from releases
+					- Is it considered feature complete?
+					- Is that the reason?
+					- It has +200 opened issues and 34 opened pull requests on Github, so I'd say no.
+					- I'm not calling it dead, but I wouldn't choose it for my app.
+				</aside>
+			</section>
+
+			<section>
+				<h2>Falcon</h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/falcon_logo.svg" alt="">
+
+				<aside class="notes" data-markdown>
+					- next in line is Falcon.
+
+					- created at Rackspace circa 2013
+					- needed some simple messaging mechanism for some internal tooling (for the headless backup agent and the control plane to talk)
+					- tried the first prototype in Flask, but because of strict latency requirements Flask didn't make the cut
+
+					- "bare-metal Python web API framework for building high-performance microservices, app backends, and higher-level frameworks"
+					- it's a little Python web framework for building microservices, proxies, application back ends, those sorts of things, with a particular emphasis on low latency, high scale use cases.
+					- a relatively thin layer on top of WSGI, so there's not a lot between you and your web server. And it also tries to embrace HTTP versus paving over it so you have direct access to everything that's going on.
+
+					- unopinionated
+					- non-opinionated ideas, being able to have a flexible base that I could build upon and reuse over and over, almost like a framework for frameworks if that sort of makes sense
+
+					- fair number of add-ons (https://github.com/falconry/falcon/wiki/Add-on-Catalog)
+
+					- became complementary framework to what people are doing
+					- You'll have someone who has a large, monolithic Django app, and they have a really hot endpoint. Maybe they're using Django REST framework, which is a great framework, but for this one end point, it's just killing their servers. So they carve that piece out, write it in Falcon. It lets them make the performance trade offs that they want to make. And then they keep the rest in Django and then they're able to partition that one piece off into a microservice, and that works well for people.
+
+					-  the core idea around Falcon is, our promise to you is we will remove the bottleneck in the framework. Your performance bottleneck will not be in the framework. Everything outside of that is up to you.
+
+					- python from 2.6 to 3.6
+					- pypy 2 & pypy 3
+
+					- how it works
+					- in Falcon, you represent a resource with just a plain Python class, nothing super special about it except that in that class you have what we call responder methods.
+					- And these are just methods that have a well known name that starts with on and then underscore and then the name of the HTTP method that you want to respond to.
+					-  if you don't implement a method, Falcon will just return a method not found for you
+					- So this resource responds to get requests, post requests, et cetera, so you create a method for each one of those. Within that method in that class, you'll receive request and response objects.
+					- So like in Flask, you'll say, you'll instantiate some kind of response and return it.
+					- So you pull the information you need out of the request, do what you need to do.
+					- You've got the status code, you've got the headers, things like that. And because this is a class and you instantiate it upfront, you can pass in a database connection or whatever, anything like that. There's no magic.
+					- once you have that filled out, then you need to wire that up to a route. So a route is simply a mapping between a URL and your resource.
+					- then you instantiate an API object, which is a WSGI app
+					- doesn't use decorators
+
+					- who's using it?
+					- Rackspace, Linkedin, Wargaming (certain aspects of World of Tanks)
+				</aside>
+			</section>
+
+			<section>
+				<h2>Hug</h2>
+
+				<img style="border: 0px; margin: 15px; background: none;" src="media/hug_logo.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- And the last one, my favorite, if for nothing else then for the cute mascot.
+
+					- HUG simply stands for Hopefully Useful Guide. This represents the project's goal to help guide developers into creating well written and intuitive APIs.
+
+					- json style auto docs
+					- Python makes it easy to document your APIs well using doc strings and types annotations. hug uses this information to automatically generate documentation for users of your API so you don't have to.
+					- docs are available in your root
+					- Built in version management
+					- hug makes it easy to expose multiple versions of your API. With hug you can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
+					- Annotation powered validation
+					- hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
+					- choose to how and where to have your API points exposed
+					- With hug your API and business logic is cleanly separated from the interface you're exposing it on, which means you can safely expose it over HTTP, CLI, and Python in one fell swoop.
+
+					- even though Falcon and Hug are separate projects, there are some tests in Falcon's repo that make sure they don't break Hug.
+					- So much love and hugz.
+					- as much is Falcon uopinionated, hug is.
+					- and that's a good thing.
+					- to get a service up and running really, really fast, it's perfect.
+					- as simple as flask or bottle and also in some ways more explicit
+
+					- unfortunately, the docs are not really that good.
+					- examples are pretty basic and for anything more complex you are left on your own
+					- but since, as I said, Hug is built upon Falcon for a lot of things (like Request or Response objects) you can just look into Falcon's docs and continue on your marry way.
+				</aside>
+			</section>
+
+			<section>
+				<h2>Sanic</h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/sanic_logo.png" alt="" width="60%">
+
+				<aside class="notes" data-markdown>
+
+				</aside>
+			</section>
+
+			<section>
+				<h2>API Star</h2>
+
+				<h2>🌟</h2>
+
+				<aside class="notes" data-markdown>
+					- The newest player in town is Apistar created by Tom Christie of Django Rest Framework fame.
+					- It's standalone framework but that can use Django's ORM or SQLAlchemy.
+					- I had the good fortune of being on the last DjangoCon when Tom Christie announced ApiStar.
+					- There were a lot of mixed feelings there.
+						- From people saying: "This is the best thing since sliced bread" to "Is _Rest Framework_ now dead?"
+						- Well, both were wrong.
+						- Christie is working on both and that is a good thing and a bad thing.
+						- It's good that he's still working on _Rest Framework_ since it's such an integral part of Django today.
+						- But it's a bad thing that he's still working on _Rest Framework_ since Apistar is sometimes neglected.
+
+					- I tried doing something with back in spring and than later it in the summer, and it was _kind of_ broken.
+					- Things work, but scratch the surface and try to do something just a bit above tutorial and you get errors from the package itself.
+
+					- So, what does it offer?
+						- wsgi or async straight out of the box
+							- no fumbling around with 3rd party packages and such
+							- async using `uvicorn`
+						- generating json schema for Swagger, RAML or CoreJSON
+						- leveraging typesystem for validation
+						- out-of-the-box templating using Jinja2, but bear in mind that _text/JSON_ content type is the default one
+						- authentication builtin, but you have to provide against what you're actually authenticating
+						- testing using py.test: ```$ apistar test```
+						- beautiful web browsable auto docs
+							- media/apistar_autodocs_1.png
+							- media/apistar_autodocs_2.png
+						- speed, and lots of it
+							- media/apistar_benchmarks_techempower_com.png
+							- * https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=json
+							- * ovo je response: ```{"message":"Hello, World!"}```
+
+					- two-three months ago, for me it was a definite no to use Apistar in production, today it's a soft maybe, hopefuly in another three months it will be a hard yes, because it really is a good project.
+				</aside>
+			</section>
+
+			<section data-background-image="media/roundup.jpg">
+				<h2 class="contrast">Roundup</h2>
+
+				<div class="photo_credits">
+					Photo by Erlend Ekseth on Unsplash
+				</div>
+
+				<aside class="notes" data-markdown>
+					- For my final slide I decided to do a round up of sorts.
+					- Bear in mind that the my findings are a bit subjective but hopefuly useful.
+				</aside>
+			</section>
+
+			<section>
+				<table class="roundup">
+					<tr>
+						<th></th>
+						<th>stable</th>
+						<th>docs</th>
+						<th>speed</th>
+						<th>async*</th>
+						<th>py2</th>
+						<th>mascot</th>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="20">
+						<th>Django</th>
+						<td>👌</td>
+						<td>👌</td>
+						<td>👎</td>
+						<td>👎</td>
+						<td>⛔ <span style="font-size: 0.6em">**</span></td>
+						<td>😊</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="30">
+						<th>Flask</th>
+						<td>👍</td>
+						<td>👍</td>
+						<td>🤞</td>
+						<td>👎</td>
+						<td>✅</td>
+						<td>😑</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="40">
+						<th>Bottle</th>
+						<td>👍</td>
+						<td>👍</td>
+						<td>👍</td>
+						<td>👎</td>
+						<td>✅</td>
+						<td>😑</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="50">
+						<th>Falcon</th>
+						<td>👍</td>
+						<td>👍</td>
+						<td>👌</td>
+						<td>👎</td>
+						<td>✅</td>
+						<td>😲</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="60">
+						<th>Hug</th>
+						<td>🤞</td>
+						<td>👎</td>
+						<td>👌</td>
+						<td>👍</td>
+						<td>⛔</td>
+						<td>😍</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="70">
+						<th>Sanic</th>
+						<td>👎</td>
+						<td>👍</td>
+						<td>👍</td>
+						<td>👍</td>
+						<td>⛔</td>
+						<td>derp</td>
+					</tr>
+					<tr class="fragment fade-in" data-fragment-index="80">
+						<th>Apistar</th>
+						<td>🖕</td>
+						<td>👍</td>
+						<td>👍</td>
+						<td>👍</td>
+						<td>⛔</td>
+						<td>🤔</td>
+					</tr>
+				</table>
+
+				<div class="photo_credits">
+					<span>* out of the box</span>
 					<br>
-					<br>
+					<span class="fragment fade-in" data-fragment-index="20">** not since 2.0 👏</span>
+				</div>
 
-					<ul>
-						<li>twitter: <a href="https://twitter.com/MislavCimpersak">@MislavCimpersak</a></li>
-						<li>github: <a href="https://github.com/mislavcimpersak">github.com/mislavcimpersak</a></li>
-					</ul>
 
-					<aside class="notes" data-markdown>
-						- Hello! I'm Mislav, web developer from Zagreb.
-					</aside>
-				</section>
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+				<aside class="notes" data-markdown>
+					- django mascot: cute
+					- flask/bottle mascot: unexciting
+					- falcon mascot: powerful!
+					- hug mascot: heart melting
+					- sanic: derp
+					- apistar: a star?
+				</aside>
+			</section>
+
+			<section>
+				<h2>Q & A</h2>
+				<a href="https://mislavcimpersak.github.io/serverless-talk/">mislavcimpersak.github.io/python-microservices-frameworks-talk</a>
+
+				<aside class="notes" data-markdown>
+					- That's it from me.
+					- My talk is available online
+					- And I'll be also sharing the url on meetup.com
+					- I hope that I've introduced you to at least one new framework and set you on a course to go beyond the usual crowd.
+				</aside>
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			history: true,
+			transition: 'fade',
+
+			dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
 </html>
