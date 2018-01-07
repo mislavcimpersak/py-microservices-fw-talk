@@ -160,42 +160,52 @@
 
 				<aside class="notes" data-markdown>
 					- next in line is Falcon.
-
 					- created at Rackspace circa 2013
-					- needed some simple messaging mechanism for some internal tooling (for the headless backup agent and the control plane to talk)
-					- tried the first prototype in Flask, but because of strict latency requirements Flask didn't make the cut
 
-					- "bare-metal Python web API framework for building high-performance microservices, app backends, and higher-level frameworks"
-					- it's a little Python web framework for building microservices, proxies, application back ends, those sorts of things, with a particular emphasis on low latency, high scale use cases.
-					- a relatively thin layer on top of WSGI, so there's not a lot between you and your web server. And it also tries to embrace HTTP versus paving over it so you have direct access to everything that's going on.
+					- Needed some simple messaging mechanism for some internal tooling.
+					- Tried the first prototype in Flask, but because of strict latency requirements Flask didn't make the cut.
+				</aside>
+			</section>
 
-					- unopinionated
-					- non-opinionated ideas, being able to have a flexible base that I could build upon and reuse over and over, almost like a framework for frameworks if that sort of makes sense
+			<section>
+				<h2>Falcon</h2>
 
-					- fair number of add-ons (https://github.com/falconry/falcon/wiki/Add-on-Catalog)
+				<ul>
+					<li style="margin-bottom: 20px;"><i>bare-metal Python web API framework for building high-performance microservices, app backends, and higher-level frameworks</i></li>
+					<li style="margin-bottom: 20px;" class="fragment">py2.6 / py3.6 / pypy2 / pypy3</li>
+					<li class="fragment">Rackspace, OpenStack, Opera Software, Linkedin, Wargaming</li>
+				</ul>
 
-					- became complementary framework to what people are doing
-					- You'll have someone who has a large, monolithic Django app, and they have a really hot endpoint. Maybe they're using Django REST framework, which is a great framework, but for this one end point, it's just killing their servers. So they carve that piece out, write it in Falcon. It lets them make the performance trade offs that they want to make. And then they keep the rest in Django and then they're able to partition that one piece off into a microservice, and that works well for people.
+				<aside class="notes" data-markdown>
+					- Falcon's elevator pitch is:
 
-					-  the core idea around Falcon is, our promise to you is we will remove the bottleneck in the framework. Your performance bottleneck will not be in the framework. Everything outside of that is up to you.
+					- It's a relatively thin layer on top of WSGI, so there's not a lot between you and your web server.
+					- Useful for, as I said, microservices, proxies, application backend, and stuff like that, with emphasis on low latency, high scale uses.
 
-					- python from 2.6 to 3.6
-					- pypy 2 & pypy 3
+					- Also perfect as a complementary framework.
+					- If you have a hot endpoint in your Django monolith, why not take that endpoint out to a special microservice and write it in Falcon.
 
-					- how it works
-					- in Falcon, you represent a resource with just a plain Python class, nothing super special about it except that in that class you have what we call responder methods.
-					- And these are just methods that have a well known name that starts with on and then underscore and then the name of the HTTP method that you want to respond to.
-					-  if you don't implement a method, Falcon will just return a method not found for you
-					- So this resource responds to get requests, post requests, et cetera, so you create a method for each one of those. Within that method in that class, you'll receive request and response objects.
-					- So like in Flask, you'll say, you'll instantiate some kind of response and return it.
-					- So you pull the information you need out of the request, do what you need to do.
-					- You've got the status code, you've got the headers, things like that. And because this is a class and you instantiate it upfront, you can pass in a database connection or whatever, anything like that. There's no magic.
-					- once you have that filled out, then you need to wire that up to a route. So a route is simply a mapping between a URL and your resource.
-					- then you instantiate an API object, which is a WSGI app
-					- doesn't use decorators
+					- The core idea around Falcon is to remove the bottleneck in the framework.
+					- Everything outside of that is up to you.
 
-					- who's using it?
-					- Rackspace, Linkedin, Wargaming (certain aspects of World of Tanks)
+					- works on, well everything.
+					- who is using it?
+				</aside>
+			</section>
+
+			<section>
+				<h2>Falcon</h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/falcon_example.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- This is how a basic Falcon app looks like.
+					- We define resources as plain Python classes which have methods for each http verb we need.
+					- If we don't define verb method, we get 405; method not allowed.
+					- This resource responds to get/post/etc. requests.
+					- Within a verb method you get request and response objects.
+					- You get all the information you need from request and pass along the response object.
+					- After that is setup, resource needs to be wired up to a route.
 				</aside>
 			</section>
 
