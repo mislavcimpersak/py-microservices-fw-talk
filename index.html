@@ -35,7 +35,7 @@
 			font-size: 0.4em; !important
 		}
 		table.roundup {
-			font-size: 0.85em;
+			font-size: 0.86em;
 		}
 		.logo {
 			margin: 0px;
@@ -79,7 +79,7 @@
 			</section>
 
 			<section>
-				<h2>Django</h2>
+				<h2><a href="https://github.com/django/django">Django</a></h2>
 
 				<img style="border: 0px; background: none; margin: 15px; padding: 15px;" src="media/django_logo.png" alt="">
 
@@ -97,7 +97,7 @@
 			</section>
 
 			<section>
-				<h2>Flask</h2>
+				<h2><a href="https://github.com/pallets/flask">Flask</a></h2>
 
 				<img style="border: 0px; background: white; margin: 15px; padding: 15px;" src="media/flask_logo.png" alt="">
 
@@ -124,7 +124,7 @@
 			</section>
 
 			<section>
-				<h2>Bottle</h2>
+				<h2><a href="https://github.com/bottlepy/bottle">Bottle</a></h2>
 
 				<img style="border: 0px; background: white; margin: 15px; padding: 15px;" src="media/bottle_logo.png" alt="" width="40%">
 
@@ -136,7 +136,7 @@
 			</section>
 
 			<section>
-				<h2>Bottle</h2>
+				<h2><a href="https://github.com/bottlepy/bottle">Bottle</a></h2>
 
 				<div style="text-align:center;">
 					<img src="media/bottle_versions_01.png" alt="" style="display: inline-block; margin-left: auto; margin-right: auto; height: 530px;">
@@ -154,7 +154,7 @@
 			</section>
 
 			<section>
-				<h2>Falcon</h2>
+				<h2><a href="https://github.com/falconry/falcon">Falcon</a></h2>
 
 				<img style="border: 0px; margin: 0px; background: none;" src="media/falcon_logo.svg" alt="">
 
@@ -168,7 +168,7 @@
 			</section>
 
 			<section>
-				<h2>Falcon</h2>
+				<h2><a href="https://github.com/falconry/falcon">Falcon</a></h2>
 
 				<ul>
 					<li style="margin-bottom: 20px;"><i>bare-metal Python web API framework for building high-performance microservices, app backends, and higher-level frameworks</i></li>
@@ -194,7 +194,7 @@
 			</section>
 
 			<section>
-				<h2>Falcon</h2>
+				<h2><a href="https://github.com/falconry/falcon">Falcon</a></h2>
 
 				<img style="border: 0px; margin: 0px; background: none;" src="media/falcon_example.png" alt="">
 
@@ -210,42 +210,68 @@
 			</section>
 
 			<section>
-				<h2>Hug</h2>
+				<h2><a href="https://github.com/timothycrosley/hug">Hug</a></h2>
 
 				<img style="border: 0px; margin: 15px; background: none;" src="media/hug_logo.png" alt="">
 
 				<aside class="notes" data-markdown>
-					- And the last one, my favorite, if for nothing else then for the cute mascot.
-
-					- HUG simply stands for Hopefully Useful Guide. This represents the project's goal to help guide developers into creating well written and intuitive APIs.
-
-					- json style auto docs
-					- Python makes it easy to document your APIs well using doc strings and types annotations. hug uses this information to automatically generate documentation for users of your API so you don't have to.
-					- docs are available in your root
-					- Built in version management
-					- hug makes it easy to expose multiple versions of your API. With hug you can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
-					- Annotation powered validation
-					- hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
-					- choose to how and where to have your API points exposed
-					- With hug your API and business logic is cleanly separated from the interface you're exposing it on, which means you can safely expose it over HTTP, CLI, and Python in one fell swoop.
-
-					- even though Falcon and Hug are separate projects, there are some tests in Falcon's repo that make sure they don't break Hug.
-					- So much love and hugz.
-					- as much is Falcon uopinionated, hug is.
-					- and that's a good thing.
-					- to get a service up and running really, really fast, it's perfect.
-					- as simple as flask or bottle and also in some ways more explicit
-
-					- unfortunately, the docs are not really that good.
-					- examples are pretty basic and for anything more complex you are left on your own
-					- but since, as I said, Hug is built upon Falcon for a lot of things (like Request or Response objects) you can just look into Falcon's docs and continue on your marry way.
+					- Hug is my favorite, if for nothing else then for the cute mascot.
+					- Released mid 2015.
+					- Uses Falcon in the background, just makes everything a bit more familiar and automatic.
 				</aside>
 			</section>
 
 			<section>
-				<h2>Sanic</h2>
+				<h2><a href="https://github.com/timothycrosley/hug">Hug</a></h2>
+
+				<ul>
+					<li><em>Hopefully Useful Guide</em></li>
+					<li>json style auto docs</li>
+					<li>version management</li>
+					<li>Annotation powered validation</li>
+					<li>Falcon ❤ Hug</li>
+					<li>~ docs</li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+					- This represents the project's goal to help guide developers into creating well written and intuitive APIs.
+					- Python makes it easy to document your APIs well using doc strings and types annotations. hug uses this information to automatically generate documentation for users of your API so you don't have to.
+					- Docs are available in your root.
+					- hug makes it easy to expose multiple versions of your API. With hug you can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
+					- hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
+
+					- Even though Falcon and Hug are separate projects, there are some tests in Falcon's repo that make sure they don't break Hug.
+					- So much love and hugz.
+					- As much is Falcon uopinionated, hug is.
+					- And that's a good thing.
+					- To get a service up and running really, really fast, it's perfect.
+					- As simple as flask or bottle and also in some ways more explicit.
+					- And also faster.
+
+					- Unfortunately, the docs are a mixed bag.
+					- They cover Hug specific problems, but since Hug is built upon Falcon you often have to go Falcon's docs.
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/timothycrosley/hug">Hug</a></h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/hug_example.png" alt="">
+
+				<aside class="notes" data-markdown>
+					-
+					- choose to how and where to have your API points exposed
+					- With hug your API and business logic is cleanly separated from the interface you're exposing it on, which means you can safely expose it over HTTP, CLI, and Python in one fell swoop.
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/channelcat/sanic">Sanic</a></h2>
 
 				<img style="border: 0px; margin: 0px; background: none;" src="media/sanic_logo.png" alt="" width="60%">
+
+				TODO description
+				TODO code example
 
 				<aside class="notes" data-markdown>
 
@@ -253,7 +279,7 @@
 			</section>
 
 			<section>
-				<h2>API Star</h2>
+				<h2><a href="https://github.com/encode/apistar">API Star</a></h2>
 
 				<h2>🌟</h2>
 
@@ -270,17 +296,32 @@
 
 					- I tried doing something with back in spring and than later it in the summer, and it was _kind of_ broken.
 					- Things work, but scratch the surface and try to do something just a bit above tutorial and you get errors from the package itself.
+				</aside>
+			</section>
 
-					- So, what does it offer?
+			<section>
+				<h2><a href="https://github.com/encode/apistar">API Star</a></h2>
+
+				<ul>
+					<li>wsgi or async</li>
+					<li>json schema generation</li>
+					<li>typesystem for validation</li>
+					<li>~templating</li>
+					<li>~authentication</li>
+					<li>testing using py.test</li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+						- So, what does it offer?
 						- wsgi or async straight out of the box
 							- no fumbling around with 3rd party packages and such
 							- async using `uvicorn`
-						- generating json schema for Swagger, RAML or CoreJSON
-						- leveraging typesystem for validation
-						- out-of-the-box templating using Jinja2, but bear in mind that _text/JSON_ content type is the default one
-						- authentication builtin, but you have to provide against what you're actually authenticating
-						- testing using py.test: ```$ apistar test```
-						- beautiful web browsable auto docs
+						- Generating json schema for Swagger, RAML or CoreJSON.
+						- Leveraging typesystem for validation
+						- Out-of-the-box templating using Jinja2, but bear in mind that _text/JSON_ content type is the default one
+						- Authentication builtin, but you have to provide against what you're actually authenticating
+						- Testing using py.test: ```$ apistar test```
+						- Beautiful web browsable auto docs
 							- media/apistar_autodocs_1.png
 							- media/apistar_autodocs_2.png
 						- speed, and lots of it
@@ -289,6 +330,50 @@
 							- * ovo je response: ```{"message":"Hello, World!"}```
 
 					- two-three months ago, for me it was a definite no to use Apistar in production, today it's a soft maybe, hopefuly in another three months it will be a hard yes, because it really is a good project.
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/encode/apistar">API Star</a></h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/apistar_autodocs.gif" alt="">
+
+				<aside class="notes" data-markdown>
+					- Beautiful web browsable auto docs.
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/encode/apistar">API Star</a></h2>
+
+				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/apistar_example.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- Django influence is obvious here.
+					- And also
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/encode/apistar">API Star</a></h2>
+
+				<img style="border: 0px; margin: 0px; background: none;" src="media/apistar_benchmarks_techempower_com.png" alt="">
+
+				<div style="font-size: 0.5em;" data-markdown>`{"message":"Hello, World!"}`</div>
+
+				<div class="photo_credits">
+					<a href="https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=json">* techempower.com benchmark</a>
+				</div>
+
+				<aside class="notes" data-markdown>
+					- Speed, and lots of it.
+					- Testing how many requests can we get from a certain framework.
+					- True, not the best benchmark, definitely far from real-world application.
+					- But shows just how little frameworks like API Star and Falcon get in the way, how little overhead they add.
+
+					- Two-three months ago, for me it was a definite no to use Apistar in production.
+					- Today it's a soft maybe.
+					- Hopefuly in another three months it will be a hard yes, because it really is a good project.
 				</aside>
 			</section>
 
@@ -400,7 +485,7 @@
 
 			<section>
 				<h2>Q & A</h2>
-				<a href="https://mislavcimpersak.github.io/serverless-talk/">mislavcimpersak.github.io/python-microservices-frameworks-talk</a>
+				<a href="https://mislavcimpersak.github.io/python-microservices-frameworks-talk/">mislavcimpersak.github.io/python-microservices-frameworks-talk</a>
 
 				<aside class="notes" data-markdown>
 					- That's it from me.
@@ -408,6 +493,17 @@
 					- And I'll be also sharing the url on meetup.com
 					- I hope that I've introduced you to at least one new framework and set you on a course to go beyond the usual crowd.
 				</aside>
+			</section>
+
+			<section data-background-image="media/styria_hiring.png">
+
+			</section>
+
+			<section>
+				<h2><a href="http://pythonbalkan.com/">PythonBalkan.com</a></h2>
+
+				<br>
+				<h3>Join @ Discord: Python Balkan</h3>
 			</section>
 		</div>
 	</div>
