@@ -59,9 +59,9 @@
 				</ul>
 
 				<aside class="notes" data-markdown>
-					- Hello! I'm Mislav, web developer from Zagreb.
-					- Microservices are a trend that is here to stay. Thanks to the modularity and granularity they provide on top of advantages like releasing applications in a continuous manner. There are various platforms and projects that are rising which are aimimg to make writing and managing microservices easy.
-					I'll talk about microservices building blocks within Python ecosystem, but with a strong emphasis on microservices that heavily use RESTful API as the main mean of communication with other services.
+					- Hello, I'm Mislav.
+					- Today I'm going to talk about microservices building blocks within Python ecosystem.
+					- with a strong emphasis on microservices that heavily use RESTful API as the main mean of communication with other services.
 				</aside>
 			</section>
 
@@ -73,7 +73,7 @@
 				</div>
 
 				<aside class="notes" data-markdown>
-					- Lucky for us, Python's ecosystem is rich with numerous wonderful web frameworks, some considered enterprise ready and some lot more boutique than you might find confortable.
+					- Lucky for us, Python's ecosystem is rich with numerous wonderful web frameworks, some considered enterprise ready and some a lot more boutique than you might find comfortable.
 					- I'll start with two frameworks everybody has heard of:
 				</aside>
 			</section>
@@ -86,10 +86,10 @@
 				<aside class="notes" data-markdown>
 					- The first one is Django.
 					- I'm not going to talk a lot about Django since I'm betting that most of you, if not all have worked on a Django based project in their lifetime.
-					- It's stable, it's mature, it's got a large and strong community, it's excellent for prototyping your idea real fast.
-					- But also proven in the wild to be able to handle even huge deployments.
+					- It's stable, it's mature, it's got a large and strong community, it's excellent for prototyping your idea real fast,
+					- but also proven in the wild to be able to handle even huge deployments.
 					- It's the framework you will use for your project when you want to get it running in minumum time.
-					- But often, in later phases, of choping you Django monolith into smaller services the first thing on the chopping block.
+					- But often, in later phases, your Django monolith is the first thing on the chopping block.
 					- Because... it's slow.
 					- Framework overhead is just huge.
 					- For a microservice you can turn off a lot of things you aren't using, like various middlewares and such, but you'll never get stellar speeds.
@@ -103,7 +103,7 @@
 
 				<aside class="notes" data-markdown>
 					- Flask's development is slow and steady. I guess.
-					- Even though the current version is 0.12 most folks consider it stable enough to build their businesses on it.
+					- Even though the current version is 0.12, most folks consider it stable enough to build their businesses on it.
 					- Today really wide spread. Big companies like Twillio and Pinterest are using it for parts of their infrastructure.
 					- If we could call Django "batteries included" framework, we could call Flask "some batteries included" framework.
 					- But guess what? Even though it's faster than Django, it's still not the fastest thing in the world.
@@ -119,7 +119,7 @@
 
 				<aside class="notes" data-markdown>
 					- That brings us to the other frameworks.
-					- Frameworks that are created with minimalism in mind.
+					- Frameworks that are created from the get-go with minimalism in mind.
 				</aside>
 			</section>
 
@@ -129,8 +129,9 @@
 				<img style="border: 0px; background: white; margin: 15px; padding: 15px;" src="media/bottle_logo.png" alt="" width="40%">
 
 				<aside class="notes" data-markdown>
-					- this is perhaps the most known one of the crowd and the oldest (2009 first release on pypi)
-					- at first I decided to skip it because, let's face it, it's not really _that_ unknown and because I'm not even sure if the project is even _properly_ alive.
+					- Bottle is perhaps the most known one of the crowd and the oldest.
+					- First release on pypi was in 2009.
+					- At first I decided to skip it because, let's face it, it's not really _that_ unknown and because I'm not even sure if the project is even _properly_ alive.
 					- last post on development blog is July 2013 (http://blog.bottlepy.org/)
 				</aside>
 			</section>
@@ -150,6 +151,7 @@
 					- Is that the reason?
 					- It has +200 opened issues and 34 opened pull requests on Github, so I'd say no.
 					- I'm not calling it dead, but I wouldn't choose it for my app.
+					- So let's move on.
 				</aside>
 			</section>
 
@@ -159,7 +161,7 @@
 				<img style="border: 0px; margin: 0px; background: none;" src="media/falcon_logo.svg" alt="">
 
 				<aside class="notes" data-markdown>
-					- next in line is Falcon.
+					- ...to Falcon.
 					- created at Rackspace circa 2013
 
 					- Needed some simple messaging mechanism for some internal tooling.
@@ -178,18 +180,15 @@
 
 				<aside class="notes" data-markdown>
 					- Falcon's elevator pitch is:
-
 					- It's a relatively thin layer on top of WSGI, so there's not a lot between you and your web server.
 					- Useful for, as I said, microservices, proxies, application backend, and stuff like that, with emphasis on low latency, high scale uses.
+					- The core idea around Falcon is to remove the bottleneck in the framework.
+					- Everything outside of that is up to you.
 
 					- Also perfect as a complementary framework.
 					- If you have a hot endpoint in your Django monolith, why not take that endpoint out to a special microservice and write it in Falcon.
 
-					- The core idea around Falcon is to remove the bottleneck in the framework.
-					- Everything outside of that is up to you.
-
-					- works on, well everything.
-					- who is using it?
+					- Works on, well everything.
 				</aside>
 			</section>
 
@@ -217,7 +216,7 @@
 				<aside class="notes" data-markdown>
 					- Hug is my favorite, if for nothing else then for the cute mascot.
 					- Released mid 2015.
-					- Uses Falcon in the background, just makes everything a bit more familiar and automatic.
+					- Uses Falcon in the background, but makes everything a bit more friendly and automatic.
 				</aside>
 			</section>
 
@@ -228,40 +227,53 @@
 					<li><em>Hopefully Useful Guide</em></li>
 					<li class="fragment">json style auto docs</li>
 					<li class="fragment">version management</li>
-					<li class="fragment">Annotation powered validation</li>
+					<li class="fragment">type annotation powered validation</li>
 					<li class="fragment">Falcon ❤ Hug</li>
 					<li class="fragment">~ docs</li>
 				</ul>
 
 				<aside class="notes" data-markdown>
 					- This represents the project's goal to help guide developers into creating well written and intuitive APIs.
-					- Python makes it easy to document your APIs well using doc strings and types annotations. hug uses this information to automatically generate documentation for users of your API so you don't have to.
-					- Docs are available in your root.
-					- hug makes it easy to expose multiple versions of your API. With hug you can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
-					- hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
+
+					- Hug makes it easy to expose multiple versions of your API. You can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
+					- Hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
 
 					- Even though Falcon and Hug are separate projects, there are some tests in Falcon's repo that make sure they don't break Hug.
-					- So much love and hugz.
-					- As much is Falcon uopinionated, hug is.
+						- So much love and hugz.
+					- As much is Falcon uopinionated, Hug is.
 					- And that's a good thing.
 					- To get a service up and running really, really fast, it's perfect.
-					- As simple as flask or bottle and also in some ways more explicit.
+					- As simple as Flask or Bottle and also in some ways more explicit.
 					- And also faster.
 
 					- Unfortunately, the docs are a mixed bag.
-					- They cover Hug specific problems, but since Hug is built upon Falcon you often have to go Falcon's docs.
+					- They cover Hug specific problems, but since Hug is built upon Falcon you often end up going to Falcon's docs.
 				</aside>
 			</section>
 
 			<section>
 				<h2><a href="https://github.com/timothycrosley/hug">Hug</a></h2>
 
-				<img style="border: 0px; margin: 0px; background: none;" src="media/hug_example.png" alt="">
+				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/hug_example.png" alt="">
 
 				<aside class="notes" data-markdown>
-					-
-					- choose to how and where to have your API points exposed
-					- With hug your API and business logic is cleanly separated from the interface you're exposing it on, which means you can safely expose it over HTTP, CLI, and Python in one fell swoop.
+					- The code is pretty self explanatory here.
+					- Hug uses the concept of directives through which you can choose how to expose your API points.
+					- Here it's the usual GET, but it can also be only through CLI or internal through Python.
+					- We see here before mentioned versions
+					- and an example of how to use the endpoint.
+					- For completeness, I've also included here an async example.
+				</aside>
+			</section>
+
+			<section>
+				<h2><a href="https://github.com/timothycrosley/hug">Hug</a></h2>
+
+				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/hug_autodocs.png" alt="">
+
+				<aside class="notes" data-markdown>
+					- Hug uses docstring, type anotations and all that extra information you entered before to automatically generate documentation for users of your API so you don't have to.
+					- Docs are available in your root.
 				</aside>
 			</section>
 
@@ -273,6 +285,7 @@
 				<aside class="notes" data-markdown>
 					- End of 2016.
 					- And as the mascot says: It's gotta go fast.
+					- It's obviously named after Sonic The Hedgehog, more specifically a popular Internet meme of a poorly drawn version of Sonic.
 				</aside>
 			</section>
 
@@ -282,7 +295,6 @@
 				<ul>
 					<li><em>Flask-like Python 3.5+ web server that's written to go fast</em></li>
 					<li class="fragment">async - <a href="https://github.com/MagicStack/uvloop">uvloop</a></li>
-					<li class="fragment">testing using py.test</li>
 					<li class="fragment">blueprints</li>
 					<li class="fragment">class-based views</li>
 					<li class="fragment">...</li>
@@ -292,9 +304,9 @@
 					- We'll observe it here as a framework of sorts.
 					- Built specifically to take advantage of async/await in Python 3.5.
 					- Built upon uvloop, an ultra fast asyncio event loop.
-					- According to their benchmarks, uvloop makes asyncio run faster 2-4x faster.
-					- And also close to the performance of Go programs.
-					- Magic!
+						- According to their benchmarks, uvloop makes asyncio run faster 2-4x faster.
+						- And also close to the performance of Go programs.
+						- Magic!
 					- Since it's inspired by Flask it's got many niffty things like blueprints, class-based views and many many other stuff.
 				</aside>
 			</section>
@@ -304,7 +316,10 @@
 
 				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/sanic_example.png" alt="">
 
-				<aside class="notes" data-markdown></aside>
+				<aside class="notes" data-markdown>
+					- And well...
+					- Here we can also see the obvious Flask inspiration.
+				</aside>
 			</section>
 
 			<section>
@@ -324,7 +339,7 @@
 						- But it's a bad thing that he's still working on _Rest Framework_ since Apistar is sometimes neglected.
 
 					- I tried doing something with back in spring and than later it in the summer, and it was _kind of_ broken.
-					- Things work, but scratch the surface and try to do something just a bit above tutorial and you get errors from the package itself.
+					- Things worked, but I've scratched the surface just a bit and tried to do something just a bit above tutorial and I get errors from the package itself.
 				</aside>
 			</section>
 
@@ -350,15 +365,6 @@
 						- Out-of-the-box templating using Jinja2, but bear in mind that _text/JSON_ content type is the default one
 						- Authentication builtin, but you have to provide against what you're actually authenticating
 						- Testing using py.test: ```$ apistar test```
-						- Beautiful web browsable auto docs
-							- media/apistar_autodocs_1.png
-							- media/apistar_autodocs_2.png
-						- speed, and lots of it
-							- media/apistar_benchmarks_techempower_com.png
-							- * https://www.techempower.com/benchmarks/#section=data-r14&hw=ph&test=json
-							- * ovo je response: ```{"message":"Hello, World!"}```
-
-					- two-three months ago, for me it was a definite no to use Apistar in production, today it's a soft maybe, hopefuly in another three months it will be a hard yes, because it really is a good project.
 				</aside>
 			</section>
 
@@ -368,7 +374,7 @@
 				<img style="border: 0px; margin: 0px; background: none;" src="media/apistar_autodocs.gif" alt="">
 
 				<aside class="notes" data-markdown>
-					- Beautiful web browsable auto docs.
+					- And since this is Tom Christie, we have beautiful web browsable auto docs.
 				</aside>
 			</section>
 
@@ -378,8 +384,8 @@
 				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/apistar_example.png" alt="">
 
 				<aside class="notes" data-markdown>
-					- Django influence is obvious here.
-					- And also
+					- Both Django's and Flask's influences are obvious here.
+					- All in all, it's quite simple to get a simple point up and running in no time.
 				</aside>
 			</section>
 
@@ -400,9 +406,9 @@
 					- True, not the best benchmark, definitely far from real-world application.
 					- But shows just how little frameworks like API Star and Falcon get in the way, how little overhead they add.
 
-					- Two-three months ago, for me it was a definite no to use Apistar in production.
-					- Today it's a soft maybe.
-					- Hopefuly in another three months it will be a hard yes, because it really is a good project.
+					- Two-three months ago, for me it was a definite _no_ to use Apistar in production.
+					- Today it's a soft _maybe_.
+					- Hopefuly in another three months it will be a hard _yes_, because it really is a good project.
 				</aside>
 			</section>
 
@@ -430,68 +436,68 @@
 						<th>py2</th>
 						<th>mascot</th>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="20">
-						<th>Django</th>
-						<td>👌</td>
-						<td>👌</td>
-						<td>👎</td>
-						<td>👎</td>
-						<td>⛔ <span style="font-size: 0.6em">**</span></td>
-						<td>😊</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="20">Django</th>
+						<td class="fragment fade-in" data-fragment-index="20">👌</td>
+						<td class="fragment fade-in" data-fragment-index="20">👌</td>
+						<td class="fragment fade-in" data-fragment-index="20">👎</td>
+						<td class="fragment fade-in" data-fragment-index="20">👎</td>
+						<td class="fragment fade-in" data-fragment-index="20">⛔ <span style="font-size: 0.6em">**</span></td>
+						<td class="fragment fade-in" data-fragment-index="25">😊</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="30">
-						<th>Flask</th>
-						<td>👍</td>
-						<td>👍</td>
-						<td>🤞</td>
-						<td>👎</td>
-						<td>✅</td>
-						<td>😑</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="30">Flask</th>
+						<td class="fragment fade-in" data-fragment-index="30">👍</td>
+						<td class="fragment fade-in" data-fragment-index="30">👍</td>
+						<td class="fragment fade-in" data-fragment-index="30">🤞</td>
+						<td class="fragment fade-in" data-fragment-index="30">👎</td>
+						<td class="fragment fade-in" data-fragment-index="30">✅</td>
+						<td class="fragment fade-in" data-fragment-index="35">😑</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="40">
-						<th>Bottle</th>
-						<td>👍</td>
-						<td>👍</td>
-						<td>👍</td>
-						<td>👎</td>
-						<td>✅</td>
-						<td>😑</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="40">Bottle</th>
+						<td class="fragment fade-in" data-fragment-index="40">🤞</td>
+						<td class="fragment fade-in" data-fragment-index="40">👍</td>
+						<td class="fragment fade-in" data-fragment-index="40">👍</td>
+						<td class="fragment fade-in" data-fragment-index="40">👎</td>
+						<td class="fragment fade-in" data-fragment-index="40">✅</td>
+						<td class="fragment fade-in" data-fragment-index="45">😑</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="50">
-						<th>Falcon</th>
-						<td>👍</td>
-						<td>👍</td>
-						<td>👌</td>
-						<td>👎</td>
-						<td>✅</td>
-						<td>😲</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="50">Falcon</th>
+						<td class="fragment fade-in" data-fragment-index="50">👍</td>
+						<td class="fragment fade-in" data-fragment-index="50">👍</td>
+						<td class="fragment fade-in" data-fragment-index="50">👌</td>
+						<td class="fragment fade-in" data-fragment-index="50">👎</td>
+						<td class="fragment fade-in" data-fragment-index="50">✅</td>
+						<td class="fragment fade-in" data-fragment-index="55">😲</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="60">
-						<th>Hug</th>
-						<td>🤞</td>
-						<td>👎</td>
-						<td>👌</td>
-						<td>👍</td>
-						<td>⛔</td>
-						<td>😍</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="60">Hug</th>
+						<td class="fragment fade-in" data-fragment-index="60">🤞</td>
+						<td class="fragment fade-in" data-fragment-index="60">👎</td>
+						<td class="fragment fade-in" data-fragment-index="60">👌</td>
+						<td class="fragment fade-in" data-fragment-index="60">👍</td>
+						<td class="fragment fade-in" data-fragment-index="60">⛔</td>
+						<td class="fragment fade-in" data-fragment-index="65">😍</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="70">
-						<th>Sanic</th>
-						<td>👎</td>
-						<td>👍</td>
-						<td>👍</td>
-						<td>👍</td>
-						<td>⛔</td>
-						<td>derp</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="70">Sanic</th>
+						<td class="fragment fade-in" data-fragment-index="70">🤞</td>
+						<td class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td class="fragment fade-in" data-fragment-index="70">⛔</td>
+						<td class="fragment fade-in" data-fragment-index="75">derp</td>
 					</tr>
-					<tr class="fragment fade-in" data-fragment-index="80">
-						<th>Apistar</th>
-						<td>🖕</td>
-						<td>👍</td>
-						<td>👍</td>
-						<td>👍</td>
-						<td>⛔</td>
-						<td>🤔</td>
+					<tr>
+						<th class="fragment fade-in" data-fragment-index="80">Apistar</th>
+						<td class="fragment fade-in" data-fragment-index="80">🖕</td>
+						<td class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td class="fragment fade-in" data-fragment-index="80">⛔</td>
+						<td class="fragment fade-in" data-fragment-index="85">🤔</td>
 					</tr>
 				</table>
 
