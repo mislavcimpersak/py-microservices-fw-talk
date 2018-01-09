@@ -60,7 +60,7 @@
 
 				<aside class="notes" data-markdown>
 					- Hello, I'm Mislav.
-					- Today I'm going to talk about microservices building blocks within Python ecosystem.
+					- Today I'm going to talk about microservices building blocks within Python ecosystem
 					- with a strong emphasis on microservices that heavily use RESTful API as the main mean of communication with other services.
 				</aside>
 			</section>
@@ -225,7 +225,6 @@
 
 				<ul>
 					<li><em>Hopefully Useful Guide</em></li>
-					<li class="fragment">json style auto docs</li>
 					<li class="fragment">version management</li>
 					<li class="fragment">type annotation powered validation</li>
 					<li class="fragment">Falcon ❤ Hug</li>
@@ -235,11 +234,10 @@
 				<aside class="notes" data-markdown>
 					- This represents the project's goal to help guide developers into creating well written and intuitive APIs.
 
-					- Hug makes it easy to expose multiple versions of your API. You can simply specify what version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
+					- Hug makes it easy to expose multiple versions of your API. You can simply specify which version or range of versions an endpoint supports and then automatically have that enforced and communicated to your API's users.
 					- Hug leverages Python 3 type annotations to enable simple per argument validation and transformation. This leads to explicit and easy to follow endpoints.
 
 					- Even though Falcon and Hug are separate projects, there are some tests in Falcon's repo that make sure they don't break Hug.
-						- So much love and hugz.
 					- As much is Falcon uopinionated, Hug is.
 					- And that's a good thing.
 					- To get a service up and running really, really fast, it's perfect.
@@ -328,15 +326,15 @@
 				<h2>🌟</h2>
 
 				<aside class="notes" data-markdown>
-					- The newest player in town is Apistar created by Tom Christie of Django Rest Framework fame.
+					- The newest player in town is API Star created by Tom Christie of Django Rest Framework fame.
 					- It's standalone framework but that can use Django's ORM or SQLAlchemy.
-					- I had the good fortune of being on the last DjangoCon when Tom Christie announced ApiStar.
+					- I had the good fortune of being on the last DjangoCon when Tom Christie announced API Star.
 					- There were a lot of mixed feelings there.
 						- From people saying: "This is the best thing since sliced bread" to "Is _Rest Framework_ now dead?"
 						- Well, both were wrong.
 						- Christie is working on both and that is a good thing and a bad thing.
 						- It's good that he's still working on _Rest Framework_ since it's such an integral part of Django today.
-						- But it's a bad thing that he's still working on _Rest Framework_ since Apistar is sometimes neglected.
+						- But it's a bad thing that he's still working on _Rest Framework_ since API Star is sometimes neglected.
 
 					- I tried doing something with back in spring and than later it in the summer, and it was _kind of_ broken.
 					- Things worked, but I've scratched the surface just a bit and tried to do something just a bit above tutorial and I get errors from the package itself.
@@ -364,7 +362,7 @@
 						- Leveraging typesystem for validation
 						- Out-of-the-box templating using Jinja2, but bear in mind that _text/JSON_ content type is the default one
 						- Authentication builtin, but you have to provide against what you're actually authenticating
-						- Testing using py.test: ```$ apistar test```
+						- Testing using py.test.
 				</aside>
 			</section>
 
@@ -438,66 +436,66 @@
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="20">Django</th>
-						<td class="fragment fade-in" data-fragment-index="20">👌</td>
-						<td class="fragment fade-in" data-fragment-index="20">👌</td>
-						<td class="fragment fade-in" data-fragment-index="20">👎</td>
-						<td class="fragment fade-in" data-fragment-index="20">👎</td>
-						<td class="fragment fade-in" data-fragment-index="20">⛔ <span style="font-size: 0.6em">**</span></td>
-						<td class="fragment fade-in" data-fragment-index="25">😊</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="20">👌</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="20">👌</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="20">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="20">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="20">⛔ <span style="font-size: 0.6em">**</span></td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="25">😊</td>
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="30">Flask</th>
-						<td class="fragment fade-in" data-fragment-index="30">👍</td>
-						<td class="fragment fade-in" data-fragment-index="30">👍</td>
-						<td class="fragment fade-in" data-fragment-index="30">🤞</td>
-						<td class="fragment fade-in" data-fragment-index="30">👎</td>
-						<td class="fragment fade-in" data-fragment-index="30">✅</td>
-						<td class="fragment fade-in" data-fragment-index="35">😑</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="30">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="30">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="30">🤞</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="30">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="30">✅</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="35">😑</td>
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="40">Bottle</th>
-						<td class="fragment fade-in" data-fragment-index="40">🤞</td>
-						<td class="fragment fade-in" data-fragment-index="40">👍</td>
-						<td class="fragment fade-in" data-fragment-index="40">👍</td>
-						<td class="fragment fade-in" data-fragment-index="40">👎</td>
-						<td class="fragment fade-in" data-fragment-index="40">✅</td>
-						<td class="fragment fade-in" data-fragment-index="45">😑</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="40">🤞</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="40">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="40">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="40">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="40">✅</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="45">😑</td>
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="50">Falcon</th>
-						<td class="fragment fade-in" data-fragment-index="50">👍</td>
-						<td class="fragment fade-in" data-fragment-index="50">👍</td>
-						<td class="fragment fade-in" data-fragment-index="50">👌</td>
-						<td class="fragment fade-in" data-fragment-index="50">👎</td>
-						<td class="fragment fade-in" data-fragment-index="50">✅</td>
-						<td class="fragment fade-in" data-fragment-index="55">😲</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="50">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="50">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="50">👌</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="50">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="50">✅</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="55">😲</td>
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="60">Hug</th>
-						<td class="fragment fade-in" data-fragment-index="60">🤞</td>
-						<td class="fragment fade-in" data-fragment-index="60">👎</td>
-						<td class="fragment fade-in" data-fragment-index="60">👌</td>
-						<td class="fragment fade-in" data-fragment-index="60">👍</td>
-						<td class="fragment fade-in" data-fragment-index="60">⛔</td>
-						<td class="fragment fade-in" data-fragment-index="65">😍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="60">🤞</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="60">👎</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="60">👌</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="60">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="60">⛔</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="65">😍</td>
 					</tr>
 					<tr>
 						<th class="fragment fade-in" data-fragment-index="70">Sanic</th>
-						<td class="fragment fade-in" data-fragment-index="70">🤞</td>
-						<td class="fragment fade-in" data-fragment-index="70">👍</td>
-						<td class="fragment fade-in" data-fragment-index="70">👍</td>
-						<td class="fragment fade-in" data-fragment-index="70">👍</td>
-						<td class="fragment fade-in" data-fragment-index="70">⛔</td>
-						<td class="fragment fade-in" data-fragment-index="75">derp</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="70">🤞</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="70">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="70">⛔</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="75">derp</td>
 					</tr>
 					<tr>
-						<th class="fragment fade-in" data-fragment-index="80">Apistar</th>
-						<td class="fragment fade-in" data-fragment-index="80">🖕</td>
-						<td class="fragment fade-in" data-fragment-index="80">👍</td>
-						<td class="fragment fade-in" data-fragment-index="80">👍</td>
-						<td class="fragment fade-in" data-fragment-index="80">👍</td>
-						<td class="fragment fade-in" data-fragment-index="80">⛔</td>
-						<td class="fragment fade-in" data-fragment-index="85">🤔</td>
+						<th class="fragment fade-in" data-fragment-index="80">API Star</th>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="80">🖕</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="80">👍</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="80">⛔</td>
+						<td style="text-align: center" class="fragment fade-in" data-fragment-index="85">🤔</td>
 					</tr>
 				</table>
 
@@ -527,6 +525,10 @@
 					- My talk is available online
 					- And I'll be also sharing the url on meetup.com
 					- I hope that I've introduced you to at least one new framework and set you on a course to go beyond the usual crowd.
+
+					------------
+
+					- Before we all go to Kolding for some beer, I would just like to give two public service announcements.
 				</aside>
 			</section>
 
