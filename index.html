@@ -88,11 +88,11 @@
 					- I'm not going to talk a lot about Django since I'm betting that most of you, if not all have worked on a Django based project in their lifetime.
 					- It's stable, it's mature, it's got a large and strong community, it's excellent for prototyping your idea real fast,
 					- but also proven in the wild to be able to handle even huge deployments.
-					- It's the framework you will use for your project when you want to get it running in minumum time.
+					- It's the framework you will use for your project when you want to get it running in minimum time.
 					- But often, in later phases, your Django monolith is the first thing on the chopping block.
 					- Because... it's slow.
 					- Framework overhead is just huge.
-					- For a microservice you can turn off a lot of things you aren't using, like various middlewares and such, but you'll never get stellar speeds.
+					- For a microservice, you can turn off a lot of things you aren't using, like various middlewares and such, but you'll never get stellar speeds.
 				</aside>
 			</section>
 
@@ -104,7 +104,7 @@
 				<aside class="notes" data-markdown>
 					- Flask's development is slow and steady. I guess.
 					- Even though the current version is 0.12, most folks consider it stable enough to build their businesses on it.
-					- Today really wide spread. Big companies like Twillio and Pinterest are using it for parts of their infrastructure.
+					- Today really widespread. Big companies like Twilio and Pinterest are using it for parts of their infrastructure.
 					- If we could call Django "batteries included" framework, we could call Flask "some batteries included" framework.
 					- But guess what? Even though it's faster than Django, it's still not the fastest thing in the world.
 				</aside>
@@ -131,7 +131,7 @@
 				<aside class="notes" data-markdown>
 					- Bottle is perhaps the most known one of the crowd and the oldest.
 					- First release on pypi was in 2009.
-					- At first I decided to skip it because, let's face it, it's not really _that_ unknown and because I'm not even sure if the project is even _properly_ alive.
+					- At first, I decided to skip it because let's face it, it's not really _that_ unknown and because I'm not even sure if the project is even _properly_ alive.
 					- last post on development blog is July 2013 (http://blog.bottlepy.org/)
 				</aside>
 			</section>
@@ -165,7 +165,7 @@
 					- created at Rackspace circa 2013
 
 					- Needed some simple messaging mechanism for some internal tooling.
-					- Tried the first prototype in Flask, but because of strict latency requirements Flask didn't make the cut.
+					- Tried the first prototype in Flask, but because of strict latency requirements, Flask didn't make the cut.
 				</aside>
 			</section>
 
@@ -199,11 +199,11 @@
 
 				<aside class="notes" data-markdown>
 					- This is how a basic Falcon app looks like.
-					- We define resources as plain Python classes which have methods for each http verb we need.
+					- We define resources as plain Python classes which have methods for each HTTP verb we need.
 					- If we don't define verb method, we get 405; method not allowed.
 					- This resource responds to get/post/etc. requests.
-					- Within a verb method you get request and response objects.
-					- You get all the information you need from request and pass along the response object.
+					- Within a verb method, you get request and response objects.
+					- You get all the information you need from the request and pass along the response object.
 					- After that is setup, resource needs to be wired up to a route.
 				</aside>
 			</section>
@@ -255,7 +255,7 @@
 				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/hug_example.png" alt="">
 
 				<aside class="notes" data-markdown>
-					- The code is pretty self explanatory here.
+					- The code is pretty self-explanatory here.
 					- Hug uses the concept of directives through which you can choose how to expose your API points.
 					- Here it's the usual GET, but it can also be only through CLI or internal through Python.
 					- We see here before mentioned versions
@@ -270,7 +270,7 @@
 				<img style="border: 0px; margin: 0px; background: none; height: 580px;" src="media/hug_autodocs.png" alt="">
 
 				<aside class="notes" data-markdown>
-					- Hug uses docstring, type anotations and all that extra information you entered before to automatically generate documentation for users of your API so you don't have to.
+					- Hug uses docstrings, type annotations and all that extra information you entered before to automatically generate documentation for users of your API so you don't have to.
 					- Docs are available in your root.
 				</aside>
 			</section>
@@ -301,11 +301,11 @@
 				<aside class="notes" data-markdown>
 					- We'll observe it here as a framework of sorts.
 					- Built specifically to take advantage of async/await in Python 3.5.
-					- Built upon uvloop, an ultra fast asyncio event loop.
+					- Built upon uvloop, an ultra-fast asyncio event loop.
 						- According to their benchmarks, uvloop makes asyncio run faster 2-4x faster.
 						- And also close to the performance of Go programs.
 						- Magic!
-					- Since it's inspired by Flask it's got many niffty things like blueprints, class-based views and many many other stuff.
+					- Since it's inspired by Flask it's got many nifty things like blueprints, class-based views and many many other stuff.
 				</aside>
 			</section>
 
@@ -336,7 +336,7 @@
 						- It's good that he's still working on _Rest Framework_ since it's such an integral part of Django today.
 						- But it's a bad thing that he's still working on _Rest Framework_ since API Star is sometimes neglected.
 
-					- I tried doing something with back in spring and than later it in the summer, and it was _kind of_ broken.
+					- I tried doing something with back in spring and then later it in the summer, and it was _kind of_ broken.
 					- Things worked, but I've scratched the surface just a bit and tried to do something just a bit above tutorial and I get errors from the package itself.
 				</aside>
 			</section>
@@ -401,12 +401,12 @@
 				<aside class="notes" data-markdown>
 					- Speed, and lots of it.
 					- Testing how many requests can we get from a certain framework.
-					- True, not the best benchmark, definitely far from real-world application.
+					- True, not the best benchmark, definitely far from a real-world application.
 					- But shows just how little frameworks like API Star and Falcon get in the way, how little overhead they add.
 
 					- Two-three months ago, for me it was a definite _no_ to use Apistar in production.
 					- Today it's a soft _maybe_.
-					- Hopefuly in another three months it will be a hard _yes_, because it really is a good project.
+					- Hopefully, in another three months, it will be a hard _yes_, because it really is a good project.
 				</aside>
 			</section>
 
@@ -418,8 +418,8 @@
 				</div>
 
 				<aside class="notes" data-markdown>
-					- For my final slide I decided to do a round up of sorts.
-					- Bear in mind that the my findings are a bit subjective but hopefuly useful.
+					- For my final slide, I decided to do a round up of sorts.
+					- Bear in mind that my findings are a bit subjective but hopefully useful.
 				</aside>
 			</section>
 
@@ -521,14 +521,14 @@
 				<a href="https://mislavcimpersak.github.io/python-microservices-frameworks-talk/">mislavcimpersak.github.io/python-microservices-frameworks-talk</a>
 
 				<aside class="notes" data-markdown>
-					- That's it from me.
+					- That's it for me.
 					- My talk is available online
-					- And I'll be also sharing the url on meetup.com
+					- And I'll be also sharing the URL on meetup.com
 					- I hope that I've introduced you to at least one new framework and set you on a course to go beyond the usual crowd.
 
 					------------
 
-					- Before we all go to Kolding for some beer, I would just like to give two public service announcements.
+					- Before we all go to Kolding for some beer, I would just like to give a public service announcement.
 				</aside>
 			</section>
 
